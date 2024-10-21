@@ -236,7 +236,9 @@ const DailyReportManagement: React.FC = () => {
     );
 
     if (selectedSpecialty) {
-      filtered = filtered.filter((patient) => patient.specialty === selectedSpecialty);
+      filtered = filtered.filter((patient) => 
+        patient.specialty === selectedSpecialty || (patient as Consultation).consultation_specialty === selectedSpecialty
+      );
     }
 
     setFilteredPatients(filtered);
